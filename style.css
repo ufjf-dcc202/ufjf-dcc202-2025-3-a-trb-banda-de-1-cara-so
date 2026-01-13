@@ -9,9 +9,25 @@ body{
     background-color: beige;
 }
 
+main{
+    display:grid;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+
+main *{
+    border: 1px black solid;
+}
+
+div.l-side{
+    align-self: start;
+    position: sticky;
+    box-sizing: border-box;
+}
+
 div.tabuleiro{
-    grid-template-rows: 32px 32px 32px 32px 32px;
-    grid-template-columns: 32px 32px 32px 32px 32px;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     align-self: center;
     display: grid;
     justify-self: center;
@@ -20,8 +36,11 @@ div.tabuleiro{
 }
 
 div.tabuleiro div{
-    font-size: 20px;
+    font-size: 10px;
+    width: 64px;
+    height:64px;
     color: purple;
-    margin: auto;
-    border: 1px, gray, solid;
+    background-color: #bbebff;
+    margin: 0;
+    border: 1px, black, solid;
 }
