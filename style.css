@@ -11,7 +11,7 @@ body{
 
 main{
     display:grid;
-    grid-template-rows: auto;
+    grid-template-rows: 600px auto;
     grid-template-columns: 1fr 2fr 1fr;
 }
 
