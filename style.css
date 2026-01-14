@@ -1,46 +1,17 @@
 * {
-    padding: auto;
-    border: auto;
-    margin: 5px;
+    padding: 0;
+    margin: 0;
+    border: 5px, grey, solid;
     font-family: monospace;
 }
 
-body{
-    background-color: beige;
+html{
+    background-color: black;
+    color:aliceblue;
 }
 
-main{
-    display:grid;
-    grid-template-rows: 600px auto;
-    grid-template-columns: 1fr 2fr 1fr;
-}
-
-main *{
-    border: 1px black solid;
-}
-
-div.l-side{
-    align-self: start;
-    position: sticky;
-    box-sizing: border-box;
-}
-
-div.tabuleiro{
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    align-self: center;
-    display: grid;
-    justify-self: center;
-    justify-content: center;
-    border: 1px, black, solid;
-}
-
-div.tabuleiro div{
-    font-size: 10px;
-    width: 64px;
-    height:64px;
-    color: purple;
-    background-color: #bbebff;
-    margin: 0;
-    border: 1px, black, solid;
+canvas{
+    width: 100vw;
+    height: 100vh;
+    
 }
