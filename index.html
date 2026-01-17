@@ -4,16 +4,52 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>INDEX</title>
-    <link href="style.css" rel="stylesheet"/>
+    <link href="src/style.css" rel="stylesheet"/>
+    <script>
+    /*to prevent Firefox FOUC, this must be here*/
+      let FF_FOUC_FIX;
+    </script>
   </head>
   <body>
-    <main>
-      <div>
+    
+    <div class="container">
+      
+      <!-- <header id="header">
+        header aqui
+      </header>
+
+      <div class = "sidebar" id="leftSide">
+        lado esquerdo
+      </div> -->
+
+      <main>
+        <div class = "main" id = "game">
           <canvas id="jogo"></canvas>
-          <script src="script.js"></script>
+          <button class = "botao">clica</button>
+          <button class = "botao">clica</button>
+          <button class = "botao">clica</button>
+          <button class = "botao">clica</button>
+          <button class = "botao">clica</button>
+          <button class = "botao">clica</button>
+          <button class = "botao">clica</button>
+          <button class = "botao">clica</button>
+          <button class = "botao">clica</button>
+          <button class = "botao">clica</button>
+        </div>
+      </main>
+
+      <!-- <div class = "sidebar" id = "rightSide">
+        lado direito
       </div>
-    </main>
+
+      <footer id = "footer">
+        footer aqui
+      </footer> -->
+    
+    </div>
+  
   </body>
+  <script type="module" src="src/script.js"></script>
 </html>
 
 <!-- e lá vamos nós -->
