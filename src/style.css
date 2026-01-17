@@ -1,0 +1,111 @@
+
+@media (prefers-color-scheme: dark){
+    :root{
+        --text       : #E0E4FC;
+        --background : #040722;
+        --primary    : #798AF1;
+        --secondary  : #44109F;
+        --accent     : #AA35EA;
+    }
+}
+@media (prefers-color-scheme: light){
+    :root{
+        --text       : #170117;
+        --background : #FEF7FF;
+        --primary    : #F710F4;
+        --secondary  : #FB7EA7;
+        --accent     : #F94553;
+    }
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    border: 2px, grey, solid;
+    font-family: monospace;
+}
+
+html{
+    color-scheme: dark light;
+}
+
+/* setar opção de tema
+[data-theme = "midnight"] {
+    color-scheme : dark;
+    --text       : #E0E4FC;
+    --background : #040722;
+    --primary    : #798AF1;
+    --secondary  : #44109F;
+    --accent     : #AA35EA;
+}
+
+[data-theme = "swomp"] {
+    color-scheme : light;
+    --text       : #E0E4FC;
+    --background : #040722;
+    --primary    : #798AF1;
+    --secondary  : #44109F;
+    --accent     : #AA35EA;
+} 
+*/
+
+.container {
+    padding: 2em;
+    display: grid;
+    height: 100vh;
+    
+    /* grid-template-rows: 1fr 2fr 2fr 2fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas: 
+        "header header header"
+        "leftSide game rightSide"
+        "leftSide game rightSide"
+        "leftSide game rightSide"
+        "footer footer footer"; */
+}
+
+#header {
+    border: var(--accent);
+    grid-area: header;
+}
+
+#leftSide {
+    border: var(--accent);
+    grid-area: leftSide;
+}
+
+#rightSide {
+    border: var(--accent);
+    grid-area: rightSide;
+}
+
+#footer {
+    border: var(--accent);
+    grid-area: footer;
+}
+
+#game {
+    border: var(--accent);
+    grid-area: jogo;
+}
+
+canvas {
+    background-color: var(--background);
+    width:  100%;
+    height: auto;
+}
+
+/* definir layout diferente pra telas menores 
+*/
+@media only screen and (max-width: 550px) {
+    .container {
+        grid-template-rows: 1fr 3fr 2fr 1fr;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "header"
+            "leftSide"
+            "jogo"
+            "rightSide"
+            "footer";
+    }
+} 
