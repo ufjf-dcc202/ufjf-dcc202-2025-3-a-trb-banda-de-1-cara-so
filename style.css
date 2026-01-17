@@ -1,7 +1,7 @@
 * {
-    padding: 0;
+    padding: 0px;
     margin: 0;
-    border: 5px, grey, solid;
+    border: 2px, grey, solid;
     font-family: monospace;
 }
 
@@ -10,9 +10,16 @@ html{
     color:aliceblue;
 }
 
-canvas{
-    background-color: wheat;
-    width: 80vw;
-    height: 80vh;
+main {
+    padding: 2em;
+    display: flex;
+    justify-self: center;
+    overflow:scroll;
+}
+
+#jogo{
+    background-color: midnightblue;
+    width: fit-content;
+    height: fit-content;
     
 }

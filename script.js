@@ -7,7 +7,7 @@ canvas.height = innerHeight;
 console.log("oi");
 
 class Board {
-    constructor(cols, rows, cellSize) {
+    constructor(rows, cols, cellSize) {
         this.cellSize = cellSize;
         this.rows = rows;
         this.cols = cols;
@@ -16,7 +16,6 @@ class Board {
         this.mids = Array(this.rows).fill().map(() => Array(this.cols));
         // iniciar auto certas funções básicas
         this.gridArrayFill();
-        this.drawGrid();
     }
 
 
@@ -38,15 +37,13 @@ class Board {
                 };
             }
         }
-        console.log(this.grid);
-        console.log(this.mids);
+
 
     }
 
 
 
     drawGrid() {
-        console.log("alo1");
         // draw mid points
         for (let r = 0; r < this.rows; r++) {
             for (let c = 0; c < this.cols; c++) {
@@ -54,8 +51,6 @@ class Board {
                 ctx.fillRect(this.mids[r][c].x, this.mids[r][c].y, 5, 5);
             }
         }
-        console.log("alo");
-
         // draw lines
         for (let r = 0; r < this.rows + 1; r++) {
             const cor = [50 * r, 100, 50];
@@ -83,8 +78,10 @@ class Board {
     }
 }
 
-const tabuleiro = new Board(5, 5, 100);
-console.log("teste alo");
+const tabuleiro = new Board(6, 3, 100);
+
+console.log(this.grid);
+console.log(this.mids);
 
 // as dimensões estão meio malucas
 // 
@@ -92,3 +89,22 @@ console.log("teste alo");
 // fazer colisão de obj
 // fazer botoes de movimento
 // fazer animações
+let x = 10;
+let y = 10;
+// desenha algo
+function ponto(px, py) {
+    ctx.fillStyle = "magenta";
+    ctx.fillRect(px, py, 30, 30);
+}
+
+function gameLoop() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    tabuleiro.drawGrid();
+    ponto(x, y);
+    x++;
+    y++;
+    requestAnimationFrame(gameLoop);
+
+}
+
+gameLoop();
