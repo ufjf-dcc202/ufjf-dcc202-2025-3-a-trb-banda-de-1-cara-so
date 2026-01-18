@@ -1,36 +1,25 @@
-
-@media (prefers-color-scheme: dark){
-    :root{
-        --text       : #E0E4FC;
-        --background : #040722;
-        --primary    : #798AF1;
-        --secondary  : #44109F;
-        --accent     : #AA35EA;
-    }
-}
-@media (prefers-color-scheme: light){
-    :root{
-        --text       : #170117;
-        --background : #FEF7FF;
-        --primary    : #F710F4;
-        --secondary  : #FB7EA7;
-        --accent     : #F94553;
-    }
-}
-
 * {
     padding: 0;
     margin: 0;
-    border: 2px, grey, solid;
+    /* border: 2px, grey, solid; */
     font-family: monospace;
 }
 
 html{
+    background-color: var(--background);
     color-scheme: dark light;
 }
 
-/* setar opção de tema
-[data-theme = "midnight"] {
+[data-theme = "darkween"] {
+    color-scheme : dark;
+    --text       : #DB9D47;
+    --background : #3A3042;
+    --primary    : #EDFFD9;
+    --secondary  : #FF784F;
+    --accent     : #FFE19C;
+}
+
+[data-theme = "madruga"] {
     color-scheme : dark;
     --text       : #E0E4FC;
     --background : #040722;
@@ -39,73 +28,169 @@ html{
     --accent     : #AA35EA;
 }
 
+[data-theme = "lightween"] {
+    color-scheme : light;
+    --text       : #1F1402;
+    --background : #FEF8F0;
+    --primary    : #F1A820;
+    --secondary  : #71F5F6;
+    --accent     : #476BF4;
+}
+
 [data-theme = "swomp"] {
     color-scheme : light;
-    --text       : #E0E4FC;
-    --background : #040722;
-    --primary    : #798AF1;
-    --secondary  : #44109F;
-    --accent     : #AA35EA;
+    --text       : #041A1B;
+    --background : #E0E4FC;
+    --primary    : #20DBE1;
+    --secondary  : #AE81EE;
+    --accent     : #D460E9;
 } 
-*/
 
-.container {
-    padding: 2em;
-    display: grid;
-    height: 100vh;
+body{
+    color: var(--text);
+}
+
+.row-container {
     
-    /* grid-template-rows: 1fr 2fr 2fr 2fr 1fr;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-areas: 
-        "header header header"
-        "leftSide game rightSide"
-        "leftSide game rightSide"
-        "leftSide game rightSide"
-        "footer footer footer"; */
+    display: flex;
+    flex-direction: column;
 }
 
-#header {
+.header {
     border: var(--accent);
-    grid-area: header;
+    
 }
 
-#leftSide {
-    border: var(--accent);
-    grid-area: leftSide;
+
+main {
+    grid-area: main;
+    display: flex;
+    justify-content: center;
+    width: vw;
+    border: 2px, var(--accent), solid;
+    margin: 20px;
 }
 
-#rightSide {
-    border: var(--accent);
-    grid-area: rightSide;
-}
-
-#footer {
-    border: var(--accent);
-    grid-area: footer;
-}
-
-#game {
-    border: var(--accent);
-    grid-area: jogo;
-}
 
 canvas {
-    background-color: var(--background);
-    width:  100%;
+    display: block;
+    /* aspect-ratio: 4/3; */
+    width: 100%;
     height: auto;
+    background: var(--primary);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
+
+.game {
+    width: auto;
+    border: 10px, var(--accent), solid;
+}
+
+.controles-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content:center;
+
+    border: 2px, #040722, solid;
+    width: 36%;
+    height: auto;
+    
+    background: linear-gradient(0deg,var(--primary));
+    border-radius: 15px;
+    margin-left: 20px;
+}
+
+.controles-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    position:static;
+    overflow: hidden;
+    
+}
+
+.controles {
+    background: var(--secondary);
+    
+    border: 2px,var(--primary), solid;
+    border-radius: 14px;
+    
+    margin: 2px;
+
+    width: 64px;
+    height: 64px;
+    
+    cursor: pointer;
+
+}
+
+.controles-container #menu {
+    margin-top: 50px;
+    justify-content: space-between;
+}
+
+#up {
+    background-image: url('./assets/up_arrow.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#down {
+    background-image: url('./assets/up_arrow.png');
+    background-position: center;
+    background-size: contain;
+    transform-origin: center;
+    transform: rotate(180deg);
+    background-repeat: no-repeat;
+}
+
+#right {
+    background-image: url('./assets/up_arrow.png');
+    background-position: center;
+    background-size: contain;
+    transform-origin: center;
+    transform: rotate(90deg);
+    background-repeat: no-repeat;
+}
+
+#left {
+    background-image: url('./assets/up_arrow.png');
+    background-position: center;
+    background-size: contain;
+    transform-origin: center;
+    transform: rotate(-90deg);
+    background-repeat: no-repeat;
+}
+
 
 /* definir layout diferente pra telas menores 
 */
-@media only screen and (max-width: 550px) {
+@media only screen and (max-width: 650px) {
+    body{
+        margin: 5px;
+    }
+    canvas{
+        /* aspect-ratio: 3/4; */
+        width: vw;
+    }
+    
     .container {
-        grid-template-rows: 1fr 3fr 2fr 1fr;
-        grid-template-columns: 1fr;
-        grid-template-areas: 
-            "header"
-            "leftSide"
-            "jogo"
-            "rightSide"
-            "footer";
+        display: flex;
+        flex-direction: column;
+    }
+
+    main {
+        flex-direction: column;
+    }
+    .controles-container{
+        width: auto;
+        margin-left: 0;
+        margin-top: 20px;
     }
 } 
