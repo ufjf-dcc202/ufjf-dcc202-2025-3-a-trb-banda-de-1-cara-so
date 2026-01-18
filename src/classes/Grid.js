@@ -74,39 +74,42 @@ class Grid {
             }
         }
         // draw lines
-        for (let r = 0; r < this.rows + 1; r++) {
-            //const cor = [50 * r, 100, 50];
-            //ctx.strokeStyle = `hsl(${cor[0]}, ${cor[1]}%, ${cor[2]}%)`;
-            ctx.strokeStyle = `#ffff4e66`;
-            ctx.lineWidth = 2;
+        //for (let r = 0; r < this.rows + 1; r++) {
+        //    //const cor = [50 * r, 100, 50];
+        //    //ctx.strokeStyle = `hsl(${cor[0]}, ${cor[1]}%, ${cor[2]}%)`;
+        //    ctx.strokeStyle = `#ffff4e66`;
+        //    ctx.lineWidth = 2;
 
-            const lastCol = this.cols;
-            ctx.beginPath();
-            ctx.moveTo(this.gridVertices[r][0].x, this.gridVertices[r][0].y);
-            ctx.lineTo(this.gridVertices[r][lastCol].x, this.gridVertices[r][lastCol].y);
-            ctx.stroke();
-        }
-        //draw columns
-        for (let c = 0; c < this.cols + 1; c++) {
-            //const cor = [50 * c, 100, 50];
-            //ctx.strokeStyle = `hsl(${cor[0]}, ${cor[1]}%, ${cor[2]}%)`;
-            ctx.strokeStyle = `#4effff66`;
-            ctx.lineWidth = 2;
+        //    const lastCol = this.cols;
+        //    ctx.beginPath();
+        //    ctx.moveTo(this.gridVertices[r][0].x, this.gridVertices[r][0].y);
+        //    ctx.lineTo(this.gridVertices[r][lastCol].x, this.gridVertices[r][lastCol].y);
+        //    ctx.stroke();
+        //}
+        ////draw columns
+        //for (let c = 0; c < this.cols + 1; c++) {
+        //    //const cor = [50 * c, 100, 50];
+        //    //ctx.strokeStyle = `hsl(${cor[0]}, ${cor[1]}%, ${cor[2]}%)`;
+        //    ctx.strokeStyle = `#4effff66`;
+        //    ctx.lineWidth = 2;
 
-            const lastRow = this.rows;
-            ctx.beginPath();
-            ctx.moveTo(this.gridVertices[0][c].x, this.gridVertices[0][c].y);
-            ctx.lineTo(this.gridVertices[lastRow][c].x, this.gridVertices[lastRow][c].y);
-            ctx.stroke();
-        }
+        //    const lastRow = this.rows;
+        //    ctx.beginPath();
+        //    ctx.moveTo(this.gridVertices[0][c].x, this.gridVertices[0][c].y);
+        //    ctx.lineTo(this.gridVertices[lastRow][c].x, this.gridVertices[lastRow][c].y);
+        //    ctx.stroke();
+        //}
 
+        //draw round rect
         for (let r = 0; r < this.rows; r++) {
             for (let c = 0; c < this.cols; c++) {
-                const roundOffset = (this.cellSize - this.cellSize / 1.2) / 2;
+                const smol = 1.2;
+                const smolCellSize = this.cellSize / smol;
+                const roundOffset = (this.cellSize - this.cellSize / smol) / 2;
                 ctx.strokeStyle = "white";
 
                 ctx.beginPath();
-                ctx.roundRect(this.gridVertices[r][c].x + roundOffset, this.gridVertices[r][c].y + roundOffset, this.cellSize / 1.2, this.cellSize / 1.2, 15);
+                ctx.roundRect(this.gridVertices[r][c].x + roundOffset, this.gridVertices[r][c].y + roundOffset, smolCellSize, smolCellSize, 15);
                 ctx.stroke();
             }
         }
