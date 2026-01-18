@@ -3,10 +3,11 @@
     margin: 0;
     /* border: 2px, grey, solid; */
     font-family: monospace;
+    transition: all 0.3s ease;
 }
 
 html{
-    background-color: var(--background);
+    
     color-scheme: dark light;
 }
 
@@ -47,7 +48,9 @@ html{
 } 
 
 body{
+    background-color: var(--background);
     color: var(--text);
+    
 }
 
 .row-container {
@@ -79,12 +82,11 @@ canvas {
     height: auto;
     background: var(--primary);
     border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    box-shadow: 0 0 50px var(--accent);
 }
 
 .game {
     width: auto;
-    border: 10px, var(--accent), solid;
 }
 
 .controles-container {

@@ -1,0 +1,104 @@
+tudo que coloquei em comentário... vai que é útil mais tarde
+
+
+//if (window.innerWidth / innerHeight > 0.7) {
+//    canvas.width = 800;
+//    canvas.height = 600;z
+//} else {
+//    canvas.width = 600;
+//    canvas.height = 800;
+//}
+
+console.log(window.innerHeight / window.innerWidth);
+
+// get buttons
+
+
+console.log("oi");
+
+const grid = new Grid(5, 5, canvas.width, canvas.height);
+const player = new Player(grid.mids, grid.gridVertices);
+
+
+//console.log(grid.mids);
+//console.log(grid.gridVertices);
+//const teste = grid.mids.length;
+//console.log(teste);
+
+// separar main menu e fases
+
+// as dimensões estão meio malucas
+
+// fazer player class: usar svg, img ou canvas?
+// fazer colisão de obj
+
+// fazer animações
+
+//function checkCollision(obj1, obj2) {
+//    if (obj1.x = obj2.x)
+//}
+
+
+/* teste de animação
+let x = 10;
+let y = 10;
+let dx = 5;
+let dy = 5;
+let o = 10;
+
+
+// desenha algo
+function ponto(px, py, o) {
+    ctx.fillStyle = `hsl(${o},100%,50%)`;
+    ctx.fillRect(px, py, 30, 30);
+}
+
+function gameLoop() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    grid.drawGrid(ctx);
+
+    ponto(x, y, o);
+
+    if ((x) < 0) {
+        dx = -dx;
+        o += 10;
+    }
+    if ((x + 30) == canvas.width - 2) {
+        dx = -dx;
+        o += 10;
+    }
+
+    if ((y) < 0) {
+        dy = -dy;
+        o += 10;
+    }
+    if ((y + 30) == canvas.height - 1) {
+        dy = -dy;
+        o += 10;
+    }
+
+    x += dx;
+    y += dy;
+
+    //console.log(y);
+
+    requestAnimationFrame(gameLoop);
+
+}
+*/
+
+
+
+function gameLoop() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    grid.drawGrid(ctx);
+    player.drawPlayer(ctx);
+    player.update();
+
+    requestAnimationFrame(gameLoop);
+    console.log("fim");
+}
+// ponto(canvas.width / 2, canvas.height / 2);
+
+
+gameLoop();

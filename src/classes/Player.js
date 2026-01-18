@@ -1,5 +1,9 @@
 class Player {
-    constructor(gridPoints, gridLimits) {
+    constructor(ctx, gridPoints, gridLimits) {
+        console.log("new player");
+
+        this.ctx = ctx;
+
         this.gridPoints = gridPoints;
         this.gridLimits = gridLimits;
         this.finalRow = this.gridPoints.length - 1;
@@ -10,10 +14,12 @@ class Player {
         console.log(this.gridPoints);
         console.log(this.gridLimits);
 
-        console.log("alo3");
 
         console.log(this.finalRow);
         console.log(this.finalCol);
+
+
+
 
         this.position = gridPoints;
         this.rowPosition = 0;
@@ -23,22 +29,25 @@ class Player {
         this.xTarget = this.xPosition;
         this.yTarget = this.yPosition;
 
+
+
         this.isMoving = false;
 
     }
 
-    drawPlayer(ctx) {
-        //console.log("oi testando");
-        ctx.fillStyle = "#00aeffaa"
-        ctx.beginPath();
-        ctx.arc(this.xPosition, this.yPosition, 32, 0, 2 * Math.PI);
-        ctx.fill();
 
-        ctx.fillStyle = "#fe6";
-        ctx.font = "12px Arial";
-        ctx.textAlign = "center";
-        ctx.fillText(`${Math.floor(this.xPosition)},${Math.floor(this.yPosition)}`, this.xPosition - 30, this.yPosition);
-        ctx.fillText(`${Math.floor(this.rowPosition)},${Math.floor(this.colPosition)}`, this.xPosition + 30, this.yPosition);
+    drawPlayer() {
+        //console.log("oi testando");
+        this.ctx.fillStyle = "#00aeffaa"
+        this.ctx.beginPath();
+        this.ctx.arc(this.xPosition, this.yPosition, 32, 0, 2 * Math.PI);
+        this.ctx.fill();
+
+        this.ctx.fillStyle = "#fe6";
+        this.ctx.font = "12px Arial";
+        this.ctx.textAlign = "center";
+        this.ctx.fillText(`${Math.floor(this.xPosition)},${Math.floor(this.yPosition)}`, this.xPosition - 30, this.yPosition);
+        this.ctx.fillText(`${Math.floor(this.rowPosition)},${Math.floor(this.colPosition)}`, this.xPosition + 30, this.yPosition);
     }
 
     moveRight() {
@@ -80,7 +89,7 @@ class Player {
             this.rowPosition++;
             this.yTarget = this.gridPoints[this.rowPosition][this.colPosition].y;
             this.isMoving = true;
-            console.log("ativou");
+            console.log("ativou", this.yTarget);
 
         } else {
             console.log("nao ativou")
@@ -117,7 +126,7 @@ class Player {
 
             console.log("ativou d");
         }
-
+        this.drawPlayer();
 
     }
 }

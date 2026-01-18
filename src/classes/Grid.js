@@ -1,7 +1,10 @@
 // classe pra setar um grid
 
 class Grid {
-    constructor(rows, cols, canvasWidth, canvasHeight) {
+    constructor(ctx, rows, cols, canvasWidth, canvasHeight) {
+        console.log("new grid");
+
+        this.ctx = ctx;
         this.rows = rows;
         this.cols = cols;
 
@@ -61,71 +64,73 @@ class Grid {
 
     }
 
-
-
-    drawGrid(ctx) {
+    drawMidPoints() {
         // draw mid points
         for (let r = 0; r < this.rows; r++) {
             for (let c = 0; c < this.cols; c++) {
-                ctx.fillStyle = "white";
-                ctx.beginPath();
-                ctx.arc(this.mids[r][c].x, this.mids[r][c].y, 3, 0, 2 * Math.PI);
-                ctx.fill();
+                this.ctx.fillStyle = "white";
+                this.ctx.beginPath();
+                this.ctx.arc(this.mids[r][c].x, this.mids[r][c].y, 3, 0, 2 * Math.PI);
+                this.ctx.fill();
             }
         }
-        // draw lines
-        //for (let r = 0; r < this.rows + 1; r++) {
-        //    //const cor = [50 * r, 100, 50];
-        //    //ctx.strokeStyle = `hsl(${cor[0]}, ${cor[1]}%, ${cor[2]}%)`;
-        //    ctx.strokeStyle = `#ffff4e66`;
-        //    ctx.lineWidth = 2;
-
-        //    const lastCol = this.cols;
-        //    ctx.beginPath();
-        //    ctx.moveTo(this.gridVertices[r][0].x, this.gridVertices[r][0].y);
-        //    ctx.lineTo(this.gridVertices[r][lastCol].x, this.gridVertices[r][lastCol].y);
-        //    ctx.stroke();
-        //}
-        ////draw columns
-        //for (let c = 0; c < this.cols + 1; c++) {
-        //    //const cor = [50 * c, 100, 50];
-        //    //ctx.strokeStyle = `hsl(${cor[0]}, ${cor[1]}%, ${cor[2]}%)`;
-        //    ctx.strokeStyle = `#4effff66`;
-        //    ctx.lineWidth = 2;
-
-        //    const lastRow = this.rows;
-        //    ctx.beginPath();
-        //    ctx.moveTo(this.gridVertices[0][c].x, this.gridVertices[0][c].y);
-        //    ctx.lineTo(this.gridVertices[lastRow][c].x, this.gridVertices[lastRow][c].y);
-        //    ctx.stroke();
-        //}
-
-        //draw round rect
-        for (let r = 0; r < this.rows; r++) {
-            for (let c = 0; c < this.cols; c++) {
-                const smol = 1.2;
-                const smolCellSize = this.cellSize / smol;
-                const roundOffset = (this.cellSize - this.cellSize / smol) / 2;
-                ctx.strokeStyle = "white";
-
-                ctx.beginPath();
-                ctx.roundRect(this.gridVertices[r][c].x + roundOffset, this.gridVertices[r][c].y + roundOffset, smolCellSize, smolCellSize, 15);
-                ctx.stroke();
-            }
-        }
-
         // pra debug, escrever coordenadas
-        ctx.fillStyle = "#666";
-        ctx.font = "12px Arial";
-        ctx.textAlign = "center";
+        this.ctx.fillStyle = "#666";
+        this.ctx.font = "12px Arial";
+        this.ctx.textAlign = "center";
 
         for (let r = 0; r < this.rows; r++) {
             for (let c = 0; c < this.cols; c++) {
-                ctx.fillText(`${r},${c}`, this.mids[r][c].x, this.mids[r][c].y - 10);
-                ctx.fillText(`${Math.floor(this.mids[r][c].x)},${Math.floor(this.mids[r][c].y)}`, this.mids[r][c].x, this.mids[r][c].y + 20);
+                this.ctx.fillText(`${r},${c}`, this.mids[r][c].x, this.mids[r][c].y - 10);
+                this.ctx.fillText(`${Math.floor(this.mids[r][c].x)},${Math.floor(this.mids[r][c].y)}`, this.mids[r][c].x, this.mids[r][c].y + 20);
             }
         }
     }
+
+    drawGrid() {
+        // draw lines
+        for (let r = 0; r < this.rows + 1; r++) {
+            this.ctx.strokeStyle = `#ffff4e66`;
+            this.ctx.lineWidth = 2;
+
+            const lastCol = this.cols;
+            this.ctx.beginPath();
+            this.ctx.moveTo(this.gridVertices[r][0].x, this.gridVertices[r][0].y);
+            this.ctx.lineTo(this.gridVertices[r][lastCol].x, this.gridVertices[r][lastCol].y);
+            this.ctx.stroke();
+        }
+        //draw columns
+        for (let c = 0; c < this.cols + 1; c++) {
+            this.ctx.strokeStyle = `#4effff66`;
+            this.ctx.lineWidth = 2;
+
+            const lastRow = this.rows;
+            this.ctx.beginPath();
+            this.ctx.moveTo(this.gridVertices[0][c].x, this.gridVertices[0][c].y);
+            this.ctx.lineTo(this.gridVertices[lastRow][c].x, this.gridVertices[lastRow][c].y);
+            this.ctx.stroke();
+        }
+    }
+
+    drawCells() {
+        //draw round rect
+        for (let r = 0; r < this.rows; r++) {
+            for (let c = 0; c < this.cols; c++) {
+                const smol = 1.4;
+                const smolCellSize = this.cellSize / smol;
+                const roundOffset = (this.cellSize - this.cellSize / smol) / 2;
+                this.ctx.strokeStyle = `#ffffffaa`;
+                this.ctx.lineWidth = 5;
+
+
+                this.ctx.beginPath();
+                this.ctx.roundRect(this.gridVertices[r][c].x + roundOffset, this.gridVertices[r][c].y + roundOffset, smolCellSize, smolCellSize, 15);
+                this.ctx.stroke();
+            }
+        }
+    }
+
+
 }
 
 
