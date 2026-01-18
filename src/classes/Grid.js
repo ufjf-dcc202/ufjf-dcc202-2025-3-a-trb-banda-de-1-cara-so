@@ -77,7 +77,7 @@ class Grid {
         for (let r = 0; r < this.rows + 1; r++) {
             //const cor = [50 * r, 100, 50];
             //ctx.strokeStyle = `hsl(${cor[0]}, ${cor[1]}%, ${cor[2]}%)`;
-            ctx.strokeStyle = "lightBlue";
+            ctx.strokeStyle = `#ffff4e66`;
             ctx.lineWidth = 2;
 
             const lastCol = this.cols;
@@ -90,7 +90,7 @@ class Grid {
         for (let c = 0; c < this.cols + 1; c++) {
             //const cor = [50 * c, 100, 50];
             //ctx.strokeStyle = `hsl(${cor[0]}, ${cor[1]}%, ${cor[2]}%)`;
-            ctx.strokeStyle = "gold";
+            ctx.strokeStyle = `#4effff66`;
             ctx.lineWidth = 2;
 
             const lastRow = this.rows;
@@ -98,6 +98,17 @@ class Grid {
             ctx.moveTo(this.gridVertices[0][c].x, this.gridVertices[0][c].y);
             ctx.lineTo(this.gridVertices[lastRow][c].x, this.gridVertices[lastRow][c].y);
             ctx.stroke();
+        }
+
+        for (let r = 0; r < this.rows; r++) {
+            for (let c = 0; c < this.cols; c++) {
+                const roundOffset = (this.cellSize - this.cellSize / 1.2) / 2;
+                ctx.strokeStyle = "white";
+
+                ctx.beginPath();
+                ctx.roundRect(this.gridVertices[r][c].x + roundOffset, this.gridVertices[r][c].y + roundOffset, this.cellSize / 1.2, this.cellSize / 1.2, 15);
+                ctx.stroke();
+            }
         }
 
         // pra debug, escrever coordenadas

@@ -25,13 +25,18 @@ themeSwomp.addEventListener('click', () => {
 const canvas = document.getElementById("jogo");
 const ctx = canvas.getContext("2d");
 
-if (window.innerWidth / innerHeight > 0.7) {
-    canvas.width = 800;
-    canvas.height = 600;
-} else {
-    canvas.width = 600;
-    canvas.height = 800;
-}
+const screen = Math.min(innerWidth, innerHeight);
+
+canvas.width = screen;
+canvas.height = screen;
+
+//if (window.innerWidth / innerHeight > 0.7) {
+//    canvas.width = 800;
+//    canvas.height = 600;
+//} else {
+//    canvas.width = 600;
+//    canvas.height = 800;
+//}
 
 console.log(window.innerHeight / window.innerWidth);
 
@@ -43,7 +48,7 @@ const downBtn = document.getElementById("down");
 
 console.log("oi");
 
-const grid = new Grid(8, 8, canvas.width, canvas.height);
+const grid = new Grid(5, 5, canvas.width, canvas.height);
 const player = new Player(grid.mids, grid.gridVertices);
 
 
