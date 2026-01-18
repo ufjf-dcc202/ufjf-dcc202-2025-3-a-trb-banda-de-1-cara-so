@@ -68,7 +68,9 @@ class Grid {
         for (let r = 0; r < this.rows; r++) {
             for (let c = 0; c < this.cols; c++) {
                 ctx.fillStyle = "white";
-                ctx.fillRect(this.mids[r][c].x, this.mids[r][c].y, 5, 5);
+                ctx.beginPath();
+                ctx.arc(this.mids[r][c].x, this.mids[r][c].y, 3, 0, 2 * Math.PI);
+                ctx.fill();
             }
         }
         // draw lines
@@ -105,7 +107,8 @@ class Grid {
 
         for (let r = 0; r < this.rows; r++) {
             for (let c = 0; c < this.cols; c++) {
-                ctx.fillText(`${r},${c}`, this.mids[r][c].x, this.mids[r][c].y);
+                ctx.fillText(`${r},${c}`, this.mids[r][c].x, this.mids[r][c].y - 10);
+                ctx.fillText(`${Math.floor(this.mids[r][c].x)},${Math.floor(this.mids[r][c].y)}`, this.mids[r][c].x, this.mids[r][c].y + 20);
             }
         }
     }

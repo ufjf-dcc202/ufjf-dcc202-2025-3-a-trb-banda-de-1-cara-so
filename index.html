@@ -12,39 +12,52 @@
   </head>
   <body>
     
-    <div class="container">
+    <div class="row-container">
       
-      <!-- <header id="header">
+      <header id="header">
+        <section id = "themes">
+          <button data-theme="darkween"  id="darkween" class = "theme" >darkween</button>
+          <button data-theme="madruga"   id="madruga"  class = "theme" >madruga</button>
+          <button data-theme="lightween" id="lightween"class = "theme" >lightween</button>
+          <button data-theme="swomp"     id="swomp"    class = "theme" >swomp</button>
+        </section>
         header aqui
       </header>
 
-      <div class = "sidebar" id="leftSide">
-        lado esquerdo
-      </div> -->
-
       <main>
-        <div class = "main" id = "game">
-          <canvas id="jogo"></canvas>
-          <button class = "botao">clica</button>
-          <button class = "botao">clica</button>
-          <button class = "botao">clica</button>
-          <button class = "botao">clica</button>
-          <button class = "botao">clica</button>
-          <button class = "botao">clica</button>
-          <button class = "botao">clica</button>
-          <button class = "botao">clica</button>
-          <button class = "botao">clica</button>
-          <button class = "botao">clica</button>
+        <div class = "game" id = "game">
+
+          <canvas id = "jogo"></canvas>
+          
         </div>
+
+          <div class = "controles-container">
+
+            <div class = "controles-row" id="move1">
+              <button class = "controles" id = "up"     type = "button">      </button>
+            </div>
+            <div class = "controles-row" id="move2">
+              <button class = "controles" id = "left"   type = "button"> </button>
+              <button class = "controles" id = "down"   type = "button"> </button>
+              <button class = "controles" id = "right"  type = "button"> </button>
+            </div>
+            <div class = "controles-row" id="menu">
+              <button class = "controles" id = "back" type = "button"> back   </button>
+              <button class = "controles" id = "play" type = "button"> play   </button>
+              <button class = "controles" id = "stop" type = "button"> stop   </button>
+              <button class = "controles" id = "next" type = "button"> next   </button>
+            </div>
+          </div>
+
       </main>
 
-      <!-- <div class = "sidebar" id = "rightSide">
+      <div class = "sidebar" id = "rightSide">
         lado direito
       </div>
 
       <footer id = "footer">
         footer aqui
-      </footer> -->
+      </footer>
     
     </div>
   

@@ -87,13 +87,6 @@ class Player {
         }
     }
 
-    float() {
-        this.vary =
-            this.x
-    }
-
-
-
     update() {
         //movimento
         const dx = this.xTarget - this.xPosition;
