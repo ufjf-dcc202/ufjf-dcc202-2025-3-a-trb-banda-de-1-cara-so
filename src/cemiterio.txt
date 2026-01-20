@@ -125,6 +125,22 @@ this.themes = {
     }
 }
 
+/* antigo player
+drawPlayer() {
+    //console.log("oi testando");
+    this.ctx.fillStyle = "#00aeffaa"
+    this.ctx.beginPath();
+    this.ctx.arc(this.xStartPosition, this.yStartPosition, 32, 0, 2 * Math.PI);
+    this.ctx.fill();
+
+    this.ctx.fillStyle = "#fe6";
+    this.ctx.font = "12px Arial";
+    this.ctx.textAlign = "center";
+    this.ctx.fillText(`${Math.floor(this.xStartPosition)},${Math.floor(this.yStartPosition)}`, this.xStartPosition - 30, this.yStartPosition);
+    this.ctx.fillText(`${Math.floor(this.rowPosition)},${Math.floor(this.colPosition)}`, this.xStartPosition + 30, this.yStartPosition);
+}
+*/
+
 //if (window.innerWidth / innerHeight > 0.7) {
 //    canvas.width = 800;
 //    canvas.height = 600;z

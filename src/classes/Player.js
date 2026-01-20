@@ -33,11 +33,12 @@ class Player {
         this.rotateClock = 0;
         this.rotateAnti = 0;
         this.moves = 0;
+        this.jumps = 0;
 
-        this.setSprite();
+        this.setSprites();
     }
 
-    setSprite() {
+    setSprites() {
         this.sRight = new Image();
         this.sRight.src = './src/assets/kenney_cursor-pack/Vector/Outline/arrow_e.svg';
         this.sDown = new Image();
@@ -86,10 +87,7 @@ class Player {
 
     drawSprite() {
         this.calculateDirection();
-        //this.xStart = this.gridVertices[this.rowPosition][this.colPosition].x;
-        //this.yStart = this.gridVertices[this.rowPosition][this.colPosition].y;
-        this.xStartPosition = this.startPosition[this.rowPosition][this.colPosition].x;
-        this.yStartPosition = this.startPosition[this.rowPosition][this.colPosition].y;
+
         if (this.direction == 'right') {
 
             this.ctx.drawImage(this.sRight, this.xStartPosition, this.yStartPosition, this.gridCellSize, this.gridCellSize);
@@ -110,60 +108,87 @@ class Player {
             this.ctx.drawImage(this.sUp, this.xStartPosition, this.yStartPosition, this.gridCellSize, this.gridCellSize);
 
         }
-        this.ctx.fillStyle = "#00aeffaa";
-        this.ctx.font = "20px Arial";
-        this.ctx.textAlign = "center";
-        //this.ctx.fillText(`${Math.floor(this.xStartPosition)},${Math.floor(this.yStartPosition)}`, 0, 0);
-        this.ctx.fillText(`${Math.floor(this.rowPosition)},${Math.floor(this.colPosition)}`, 0, 0);
-        console.log(`${Math.floor(this.rowPosition)},${Math.floor(this.colPosition)}`)
+
     }
 
     moveWhere() {
-        this.velocity = 60;
+        // verifica se tem movimento pra fazer e se pode fazer 
         if (this.moves > 0) {
             switch (this.direction) {
                 case 'right':
-                    if (this.colPosition < this.finalCol) {
-                        this.colPosition++;
-                        this.xTarget = this.startPosition[this.rowPosition][this.colPosition].x;
-                        console.log("ativou right move");
-                    }
+                    if (this.colPosition < this.finalCol) { this.colPosition++; }
+                    this.xTarget = this.startPosition[this.rowPosition][this.colPosition].x;
+                    console.log("ativou right move");
+
                     this.moves--;
                     return
                 case 'up':
-                    if (this.rowPosition > 0) {
-                        this.rowPosition--;
-                        this.yTarget = this.startPosition[this.rowPosition][this.colPosition].y;
-                        console.log("ativou up move");
-                    }
+                    if (this.rowPosition > 0) { this.rowPosition--; }
+                    this.yTarget = this.startPosition[this.rowPosition][this.colPosition].y;
+                    console.log("ativou up move");
+
                     this.moves--;
                     return
                 case 'left':
-                    if (this.colPosition > 0) {
-                        this.colPosition--;
-                        this.xTarget = this.startPosition[this.rowPosition][this.colPosition].x;
-                        console.log("ativou left move");
-                    }
+                    if (this.colPosition > 0) { this.colPosition--; }
+                    this.xTarget = this.startPosition[this.rowPosition][this.colPosition].x;
+                    console.log("ativou left move");
+
                     this.moves--;
                     return
                 case 'down':
-                    if (this.rowPosition < this.finalRow) {
-                        this.rowPosition++;
-                        this.yTarget = this.startPosition[this.rowPosition][this.colPosition].y;
-                        console.log("ativou down move");
-                    }
+                    if (this.rowPosition < this.finalRow) { this.rowPosition++; }
+                    this.yTarget = this.startPosition[this.rowPosition][this.colPosition].y;
+                    console.log("ativou down move");
+
                     this.moves--;
                     return
             }
         }
-        //console.log(this.moves);
+    }
+
+    jump() {
+        if (this.jumps > 0) {
+            switch (this.direction) {
+                case 'right':
+                    if (this.colPosition < this.finalCol - 1) { this.colPosition += 2; }
+                    this.xTarget = this.startPosition[this.rowPosition][this.colPosition].x;
+                    console.log("ativou right move");
+
+                    this.jumps--;
+                    return
+                case 'up':
+                    if (this.rowPosition > 1) { this.rowPosition -= 2; }
+                    this.yTarget = this.startPosition[this.rowPosition][this.colPosition].y;
+                    console.log("ativou up move");
+
+                    this.jumps--;
+                    return
+                case 'left':
+                    if (this.colPosition > 1) { this.colPosition -= 2; }
+                    this.xTarget = this.startPosition[this.rowPosition][this.colPosition].x;
+                    console.log("ativou left move");
+
+                    this.jumps--;
+                    return
+                case 'down':
+                    if (this.rowPosition < this.finalRow - 1) { this.rowPosition += 2; }
+                    this.yTarget = this.startPosition[this.rowPosition][this.colPosition].y;
+                    console.log("ativou down move");
+
+                    this.jumps--;
+                    return
+            }
+        }
     }
 
     moveForward() {
         this.moveWhere();
+        this.jump();
+        //this.velocity = 40;
         const dx = this.xTarget - this.xStartPosition;
         const dy = this.yTarget - this.yStartPosition;
-        const easeIn = 0.2;
+        const easeIn = 0.08;
         if (this.xStartPosition < this.xTarget) {
             this.xStartPosition += dx * easeIn;
             if (Math.abs(dx) < 0.5) this.xStartPosition = this.xTarget;
@@ -190,42 +215,10 @@ class Player {
         }
     }
 
-    jump() {
-
-    }
-
-
-    /*
-    drawPlayer() {
-        //console.log("oi testando");
-        this.ctx.fillStyle = "#00aeffaa"
-        this.ctx.beginPath();
-        this.ctx.arc(this.xStartPosition, this.yStartPosition, 32, 0, 2 * Math.PI);
-        this.ctx.fill();
- 
-        this.ctx.fillStyle = "#fe6";
-        this.ctx.font = "12px Arial";
-        this.ctx.textAlign = "center";
-        this.ctx.fillText(`${Math.floor(this.xStartPosition)},${Math.floor(this.yStartPosition)}`, this.xStartPosition - 30, this.yStartPosition);
-        this.ctx.fillText(`${Math.floor(this.rowPosition)},${Math.floor(this.colPosition)}`, this.xStartPosition + 30, this.yStartPosition);
-    }
-    */
-
-    // associar cada imagem a uma direção
-
-
     update() {
         this.drawSprite();
-
         this.moveForward();
-
-
-
     }
 }
 
 export default Player;
-
-// get position
-// spawn player
-// controle de movimentos ?

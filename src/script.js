@@ -30,7 +30,7 @@ function mover() {
     rotateClockBtn.addEventListener('click', () => player.rotateClock++);
     rotateAntiBtn.addEventListener('click', () => player.rotateAnti++);
     forwardBtn.addEventListener('click', () => player.moves++);
-    jumpBtn.addEventListener('click', () => player.jump());
+    jumpBtn.addEventListener('click', () => player.jumps++);
 
 }
 

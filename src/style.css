@@ -139,7 +139,8 @@ canvas {
 
 .controles {
     background: var(--secondary);
-    
+
+    /* box-shadow: 0 0 50px var(--accent); */
     border: 2px,var(--primary), solid;
     border-radius: 14px;
     
