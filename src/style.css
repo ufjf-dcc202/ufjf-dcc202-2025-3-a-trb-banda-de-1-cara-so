@@ -1,23 +1,14 @@
-
-:root {
-color-scheme : light;
---text       : #1F1402;
---background : #FEF8F0;
---primary    : #F1A820;
---secondary  : #71F5F6;
---accent     : #476BF4;
+* {
+    padding: 0;
+    margin: 0;
+    /* border: 2px, grey, solid; */
+    font-family: monospace;
 }
 
-
-:root {
-    color-scheme : dark;
-    --text       : #DB9D47;
-    --background : #3A3042;
-    --primary    : #EDFFD9;
-    --secondary  : #FF784F;
-    --accent     : #FFE19C;
+html{
+    background-color: var(--background);
+    color-scheme: dark light;
 }
-    
 
 [data-theme = "darkween"] {
     color-scheme : dark;
@@ -55,34 +46,19 @@ color-scheme : light;
     --accent     : #D460E9;
 } 
 
-* {
-    padding: 0;
-    margin: 0;
-    /* border: 2px, grey, solid; */
-    font-family: monospace;
-    transition: all 0.3s ease;
-}
-
-html {
-    
-    color-scheme: light;
-}
-
-body {
+body{
     color: var(--text);
-    background-color: var(--background);
-    
 }
 
-.column-container {
+.row-container {
+    
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 .header {
     border: var(--accent);
-    justify-items: baseline;
+    
 }
 
 
@@ -103,11 +79,12 @@ canvas {
     height: auto;
     background: var(--primary);
     border-radius: 15px;
-    box-shadow: 0 0 50px var(--accent);
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
 
 .game {
     width: auto;
+    border: 10px, var(--accent), solid;
 }
 
 .controles-container {
@@ -139,8 +116,7 @@ canvas {
 
 .controles {
     background: var(--secondary);
-
-    /* box-shadow: 0 0 50px var(--accent); */
+    
     border: 2px,var(--primary), solid;
     border-radius: 14px;
     
