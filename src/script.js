@@ -29,7 +29,7 @@ const jumpBtn = document.getElementById('jump');
 function mover() {
     rotateClockBtn.addEventListener('click', () => player.rotateClock++);
     rotateAntiBtn.addEventListener('click', () => player.rotateAnti++);
-    forwardBtn.addEventListener('click', () => player.moveForward());
+    forwardBtn.addEventListener('click', () => player.moves++);
     jumpBtn.addEventListener('click', () => player.jump());
 
 }
