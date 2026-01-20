@@ -1,4 +1,6 @@
 // classe pra setar um grid
+import Temas from "./Temas.js";
+import Game from "./Game.js";
 
 class Grid {
     constructor(ctx, rows, cols, canvasWidth, canvasHeight) {
@@ -75,7 +77,7 @@ class Grid {
             }
         }
         // pra debug, escrever coordenadas
-        this.ctx.fillStyle = "#666";
+        this.ctx.fillStyle = "#313131ff";
         this.ctx.font = "12px Arial";
         this.ctx.textAlign = "center";
 
@@ -119,7 +121,7 @@ class Grid {
                 const smol = 1.4;
                 const smolCellSize = this.cellSize / smol;
                 const roundOffset = (this.cellSize - this.cellSize / smol) / 2;
-                this.ctx.strokeStyle = `#ffffffaa`;
+                this.ctx.strokeStyle = `#111111aa`;
                 this.ctx.lineWidth = 5;
 
 

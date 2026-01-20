@@ -20,16 +20,18 @@ const player = new Player(ctx, grid.mids, grid.gridVertices);
 grid.drawCells();
 
 
-const rightBtn = document.getElementById('right');
-const leftBtn = document.getElementById("left");
-const upBtn = document.getElementById("up");
-const downBtn = document.getElementById("down");
+
+const rotateClockBtn = document.getElementById('rotateClock');
+const rotateAntiBtn = document.getElementById('rotateAnti');
+const forwardBtn = document.getElementById('forward');
+const jumpBtn = document.getElementById('jump');
 
 function mover() {
-    rightBtn.addEventListener('click', () => player.moveRight());
-    leftBtn.addEventListener('click', () => player.moveLeft());
-    upBtn.addEventListener('click', () => player.moveUp());
-    downBtn.addEventListener('click', () => player.moveDown());
+    rotateClockBtn.addEventListener('click', () => player.rotateClock++);
+    rotateAntiBtn.addEventListener('click', () => player.rotateAnti++);
+    forwardBtn.addEventListener('click', () => player.moveForward());
+    jumpBtn.addEventListener('click', () => player.jump());
+
 }
 
 mover();
@@ -37,6 +39,7 @@ mover();
 function gameLoop2() {
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
     player.update();
+    // dps coloca um grid.update()
     grid.drawGrid();
     grid.drawCells();
     grid.drawMidPoints();

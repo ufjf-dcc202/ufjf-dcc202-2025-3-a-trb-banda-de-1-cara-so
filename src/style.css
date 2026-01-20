@@ -1,15 +1,23 @@
-* {
-    padding: 0;
-    margin: 0;
-    /* border: 2px, grey, solid; */
-    font-family: monospace;
-    transition: all 0.3s ease;
+
+:root {
+color-scheme : light;
+--text       : #1F1402;
+--background : #FEF8F0;
+--primary    : #F1A820;
+--secondary  : #71F5F6;
+--accent     : #476BF4;
 }
 
-html{
-    
-    color-scheme: dark light;
+
+:root {
+    color-scheme : dark;
+    --text       : #DB9D47;
+    --background : #3A3042;
+    --primary    : #EDFFD9;
+    --secondary  : #FF784F;
+    --accent     : #FFE19C;
 }
+    
 
 [data-theme = "darkween"] {
     color-scheme : dark;
@@ -47,21 +55,34 @@ html{
     --accent     : #D460E9;
 } 
 
-body{
-    background-color: var(--background);
+* {
+    padding: 0;
+    margin: 0;
+    /* border: 2px, grey, solid; */
+    font-family: monospace;
+    transition: all 0.3s ease;
+}
+
+html {
+    
+    color-scheme: light;
+}
+
+body {
     color: var(--text);
+    background-color: var(--background);
     
 }
 
-.row-container {
-    
+.column-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .header {
     border: var(--accent);
-    
+    justify-items: baseline;
 }
 
 

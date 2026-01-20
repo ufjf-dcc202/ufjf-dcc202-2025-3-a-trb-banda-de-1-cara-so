@@ -2,6 +2,8 @@ class Game {
     constructor(gridRows, gridCols) {
         console.log("new game");
 
+        this.loadImages();
+
         this.canvas = document.getElementById("jogo");
         this.ctx = this.canvas.getContext("2d");
 
@@ -13,7 +15,6 @@ class Game {
 
 
         this.setCanvasSize();
-
     }
 
     setCanvasSize() {
@@ -38,33 +39,14 @@ class Game {
 
     }
 
-
-
-
-    // if (gridAspectRatio > windowAspectRatio) {
-    //     // Grid is wider than window - limit by width
-    //     canvasWidth = window.innerWidth * 0.9; // 90% of width
-    //     canvasHeight = canvasWidth / gridAspectRatio;
-    // } else {
-    //     // Grid is taller than window - limit by height
-    //     canvasHeight = window.innerHeight * 0.9; // 90% of height
-    //     canvasWidth = canvasHeight * gridAspectRatio;
-    // }
-
-    // // Round to whole pixels
-    // canvasWidth = Math.floor(canvasWidth);
-    // canvasHeight = Math.floor(canvasHeight);
-
-    // // Calculate cell size (should be integer for clean grid)
-    // const cellSizeX = canvasWidth / cols;
-    // const cellSizeY = canvasHeight / rows;
-
-    // // Use the smaller cell size to ensure everything fits
-    // const cellSize = Math.min(cellSizeX, cellSizeY);
-
-    // // Recalculate canvas with whole cell sizes
-    // this.canvasWidth = Math.floor(cols * cellSize);
-    // this.canvasHeight = Math.floor(rows * cellSize);
+    async loadImages() {
+        await Promise.all(
+            Array.from(document.images).map(
+                (image) =>
+                    new Promise((resolve) => image.addEventListener("load", (resolve))),
+            ),
+        );
+    }
 
 }
 
