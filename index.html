@@ -4,65 +4,77 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>INDEX</title>
-    <link href="src/style.css" rel="stylesheet"/>
-    <script>
-    /*to prevent Firefox FOUC, this must be here*/
-      let FF_FOUC_FIX;
-    </script>
+    <link href="style.css" rel="stylesheet"/>
   </head>
   <body>
-    
-    <div class="column-container">
-      
-      <header id="header">
-        <section id = "themes">
-          <button data-theme="darkween"  id="darkween" class = "theme" >darkween</button>
-          <button data-theme="madruga"   id="madruga"  class = "theme" >madruga</button>
-          <button data-theme="lightween" id="lightween"class = "theme" >lightween</button>
-          <button data-theme="swomp"     id="swomp"    class = "theme" >swomp</button>
-        </section>
-        header aqui
-      </header>
+    <header>
+      <h1>Teste - header</h1>
+    </header>
 
-      <main>
-        <div class = "game" id = "game">
+    <main>
 
-          <canvas type = "module" id = "jogo"></canvas>
-          
+      <div class="tabuleiro">
+
+        <div class="casa-row" id="a">
+          <div class="casa"  id="a1">a1
+            <img src="./UFJF-600-dpi-1024x741.jpg" style="width: 60px;height:60px;"/>
+
+          </div>
+          <div class="casa"  id="a2">a2</div>
+          <div class="casa"  id="a3">a3</div>
+          <div class="casa"  id="a4">a4</div>
+          <div class="casa"  id="a5">a5</div>
         </div>
 
-          <div class = "controles-container">
+        <div class="casa-row" id="b">
+          <div class="casa"  id="b">b1</div>
+          <div class="casa"  id="b">b2</div>
+          <div class="casa"  id="b">b3</div>
+          <div class="casa"  id="b">b4</div>
+          <div class="casa"  id="b">b5</div>
+        </div>
+        
+        <div class="casa-row" id="c">
+          <div class="casa"  id="c">c1</div>
+          <div class="casa"  id="c">c2</div>
+          <div class="casa"  id="c">c3</div>
+          <div class="casa"  id="c">c4</div>
+          <div class="casa"  id="c">c5</div>
+        </div>
 
-            <div class = "controles-row" id="move1">
-              <button class = "controles" id = "forward"  type = "button">   segue   </button>
-            </div>
-            <div class = "controles-row" id="move2">
-              <button class = "controles" id = "rotateAnti"    type = "button">anti</button>
-              <button class = "controles" id = "jump"         type = "button">pular</button>
-              <button class = "controles" id = "rotateClock"   type = "button">clock</button>
-            </div>
-            <div class = "controles-row" id="menu">
-              <button class = "controles" id = "back" type = "button"> back   </button>
-              <button class = "controles" id = "play" type = "button"> play   </button>
-              <button class = "controles" id = "stop" type = "button"> stop   </button>
-              <button class = "controles" id = "next" type = "button"> next   </button>
-            </div>
-          </div>
+        <div class="casa-row" id="d">
+          <div class="casa"  id="d">d1</div>
+          <div class="casa"  id="d">d2</div>
+          <div class="casa"  id="d">d3</div>
+          <div class="casa"  id="d">d4</div>
+          <div class="casa"  id="d">d5</div>
+        </div>
 
-      </main>
-
-      <div class = "sidebar" id = "rightSide">
-        lado direito
+        <div class="casa-row" id="e">
+          <div class="casa"  id="e">e1</div>
+          <div class="casa"  id="e">e2</div>
+          <div class="casa"  id="e">e3</div>
+          <div class="casa"  id="e">e4</div>
+          <div class="casa"  id="e">e5</div>
+        </div>
       </div>
+      <div class="controles">
+        <div class="controles-row" id="moves">
+          <button class="move" id="anti-clock">anti-clock</button>
+          <button class="move" id="forward">forward</button>
+          <button class="move" id="clock">clock</button>
+        </div>
+        <div class="controles-row" id="menus">
+          <button class="menu" id="reset">reset</button>
+          <button class="menu" id="start">start</button>
+          <button class="menu" id="skip">skip</button>
+        </div>
 
-      <footer id = "footer">
-        footer aqui
-      </footer>
-    
-    </div>
-  
+      </div>
+    </main>
+    <footer>footer</footer>
   </body>
-  <script type="module" src="src/script.js"></script>
+  <script src="script.js"></script>
 </html>
 
-<!-- e lá vamos nós -->
+<!-- tudo usando mozilla html e css reference + inspeção de sites como fontes -->

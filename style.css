@@ -1,0 +1,53 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: monospace;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: beige;
+    align-items: center;
+    
+}
+
+button {
+    width: 60px;
+    height: 60px;
+}
+
+.tabuleiro{
+    display: flex;
+    flex-direction: column;
+}
+
+.casa-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.casa{
+    font-size: 10px;
+    width: 64px;
+    height:64px;
+    color: purple;
+    background-color: #bbebff;
+    margin: 0;
+    border: 1px, black, solid;
+}
+
+.controles {
+    display: flex;
+    flex-direction: column;
+}
+
+.controles-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+footer {
+    justify-self: flex-end;
+}
